@@ -29,14 +29,14 @@ jobs:
         # IPTV-v4
         rm -f IPTV-v4.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/index.m3u -O IPTV-v4.m3u
         sed -i -n '/group-title/,+1p' IPTV-v4.m3u
-        sed 's/group-title="/group-title="IPv4·/g' IPTV-v4.m3u
+        sed 's/group-title="/group-title="IPv4·/' IPTV-v4.m3u
         sed -i '1i #EXTM3U' IPTV-v4.m3u
         sed -i '/^\s*$/d' IPTV-v4.m3u
         
         # IPTV-v6
         rm -f IPTV-v6.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O IPTV-v6.m3u
         sed -i -n '/group-title/,+1p' IPTV-v6.m3u
-        sed 's/group-title="/group-title="IPv6·/g' IPTV-v6.m3u
+        sed 's/group-title="/group-title="IPv6·/' IPTV-v6.m3u
         sed -i '1i #EXTM3U' IPTV-v6.m3u
         sed -i '/^\s*$/d' IPTV-v6.m3u
 
@@ -84,17 +84,17 @@ jobs:
         sed -i -n '/XXX/,+1p' Adult_adultiptv.m3u
         sed -i 's/XXX/adultiptv/' Adult_adultiptv.m3u
         sed -i 's/AdultIPTV.net //g' Adult_adultiptv.m3u
-        sed 's/group-title="/group-title="IPTV·/g' Adult_adultiptv.m3u
+        sed 's/group-title="/group-title="IPTV·/' Adult_adultiptv.m3u
         
         # YueChan Adult
         rm -f Adult_YueChan.m3u && wget https://raw.githubusercontent.com/YueChan/Live/main/Adult.m3u -O Adult_YueChan.m3u
         sed -i -n '/group-title=/,+1p' Adult_YueChan.m3u
         sed -i 's/成人/YueChan/' Adult_YueChan.m3u
-        sed 's/group-title="/group-title="IPTV·/g' Adult_YueChan.m3u
+        sed 's/group-title="/group-title="IPTV·/' Adult_YueChan.m3u
         
         # YanG-1989 Adult
         rm -f Adult_YanG-1989.m3u && wget https://raw.githubusercontent.com/jiaoting/IPTV/Files/AdultVOD.m3u -O Adult_YanG-1989.m3u
-        sed 's/group-title="/group-title="VOD·/g' Adult_YanG-1989.m3u
+        sed 's/group-title="/group-title="VOD·/' Adult_YanG-1989.m3u
         
         # Adult整合源
         rm -f Adult.m3u && touch Adult.m3u
