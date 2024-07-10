@@ -1,4 +1,4 @@
-name: update IPTV list
+name: update list
 
 on:
   watch:
