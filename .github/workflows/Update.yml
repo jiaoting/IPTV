@@ -57,11 +57,11 @@ jobs:
         rm -f Global.m3u
 
         # Radio
-        wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u -O radio_1.m3u
+        rm -f radio_1.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u -O radio_1.m3u
         sed -i -n '/#EXTINF:/,+1p' radio_1.m3u
         sed 's/\(tvg-logo=[^,]*\),/\1 group-title="FM",/g' radio_1.m3u
 
-        wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/index.m3u -O radio_2.m3u
+        rm -f radio_2.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/index.m3u -O radio_2.m3u
         sed -i -n '/group-title/,+1p' radio_2.m3u
 
         # Radio整合源
@@ -75,20 +75,20 @@ jobs:
         
         # 成人源
         # adultiptv.net
-        wget http://adultiptv.net/chs.m3u -O Adult_adultiptv.m3u
+        rm -f Adult_adultiptv.m3u && wget http://adultiptv.net/chs.m3u -O Adult_adultiptv.m3u
         sed -i -n '/XXX/,+1p' Adult_adultiptv.m3u
         sed -i 's/XXX/adultiptv/' Adult_adultiptv.m3u
         sed -i 's/AdultIPTV.net //g' Adult_adultiptv.m3u
         sed 's/group-title="/group-title="IPTV·/g' Adult_adultiptv.m3u
         
         # YueChan Adult
-        wget https://raw.githubusercontent.com/YueChan/Live/main/Adult.m3u -O Adult_YueChan.m3u
+        rm -f Adult_YueChan.m3u && wget https://raw.githubusercontent.com/YueChan/Live/main/Adult.m3u -O Adult_YueChan.m3u
         sed -i -n '/group-title=/,+1p' Adult_YueChan.m3u
         sed -i 's/成人/YueChan/' Adult_YueChan.m3u
         sed 's/group-title="/group-title="IPTV·/g' Adult_YueChan.m3u
         
         # YanG-1989 Adult
-        wget https://raw.githubusercontent.com/jiaoting/IPTV/Files/AdultVOD.m3u -O Adult_YanG-1989.m3u
+        rm -f Adult_YanG-1989.m3u && wget https://raw.githubusercontent.com/jiaoting/IPTV/Files/AdultVOD.m3u -O Adult_YanG-1989.m3u
         sed 's/group-title="/group-title="VOD·/g' Adult_YanG-1989.m3u
         
         # Adult整合源
