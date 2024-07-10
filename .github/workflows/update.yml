@@ -54,9 +54,9 @@ jobs:
         sed -i '/#EXTM3U/d' IPTV.m3u
         sed -i '1i #EXTM3U' IPTV.m3u
         sed -i '/^\s*$/d' IPTV.m3u
-        rm -f IPTV-v4.m3u
-        rm -f IPTV-v6.m3u
-        rm -f Global.m3u
+        #rm -f IPTV-v4.m3u
+        #rm -f IPTV-v6.m3u
+        #rm -f Global.m3u
 
         # 节目源
         rm -f EPG.xml && wget https://epg.112114.xyz/pp.xml -O EPG.xml
@@ -75,8 +75,8 @@ jobs:
         cat radio_2.m3u >> Radio.m3u
         sed -i '1i #EXTM3U' Radio.m3u
         sed -i '/^\s*$/d' Radio.m3u
-        rm -f radio_1.m3u
-        rm -f radio_2.m3u
+        #rm -f radio_1.m3u
+        #rm -f radio_2.m3u
 
         # 成人源
         # adultiptv.net
