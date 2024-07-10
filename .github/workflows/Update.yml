@@ -1,77 +1,114 @@
-name: Update
+name: update IPTV list
 
 on:
-  push:
+  watch:
+    types: started
   schedule:
-    - cron: 0,30 * * * *
-
-env:
-  TZ: Asia/Shanghai
-
+    - cron: "00 0 * * *"
+  workflow_dispatch:
+  
 jobs:
-  Update:
+  build:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-
-    - name: GetTime
-      run: echo "GET_TIME=$(date +'%Y-%m-%d %H:%M:%S CST')" >> $GITHUB_ENV
+      with:
+        fetch-depth: 0
+        
+    - name: Set git identity
+      run : |
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        sudo timedatectl set-timezone "Asia/Shanghai"
 
     - name: Update
       run: |
-        # 央视源
-        rm -f CCTV.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O CCTV.m3u
-        sed -i -n '/央视/,+1p' CCTV.m3u
-        sed -i '1i #EXTM3U' CCTV.m3u
-        sed -i '/^\s*$/d' CCTV.m3u
+        
+        # IPTV-v4
+        rm -f IPTV-v4.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/index.m3u -O IPTV-v4.m3u
+        sed -i -n '/group-title/,+1p' IPTV-v4.m3u
+        sed -i '1i #EXTM3U' IPTV-v4.m3u
+        sed -i '/^\s*$/d' IPTV-v4.m3u
+        
+        # IPTV-v6
+        rm -f IPTV-v6.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O IPTV-v6.m3u
+        sed -i -n '/group-title/,+1p' IPTV-v6.m3u
+        sed -i '1i #EXTM3U' IPTV-v6.m3u
+        sed -i '/^\s*$/d' IPTV-v6.m3u
 
-        # 卫视源
-        rm -f CNTV.m3u && touch CNTV.m3u
-        wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O CNTV1.m3u && sed -i -n '/卫视/,+1p' CNTV1.m3u
-        wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O CNTV2.m3u && sed -i -n '/数字/,+1p' CNTV2.m3u
-        wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O CNTV3.m3u && sed -i -n '/百视/,+1p' CNTV3.m3u
-        cat CNTV1.m3u >> CNTV.m3u
-        cat CNTV2.m3u >> CNTV.m3u
-        cat CNTV3.m3u >> CNTV.m3u
-        rm -f CNTV1.m3u CNTV2.m3u CNTV3.m3u
-        sed -i '1i #EXTM3U' CNTV.m3u
-        sed -i '/^\s*$/d' CNTV.m3u
+        # Global
+        rm -f Global.m3u && wget https://raw.githubusercontent.com/YueChan/Live/main/Global.m3u -O Global.m3u
+        sed -i -n '/group-title/,+1p' Global.m3u
+        sed -i '1i #EXTM3U' Global.m3u
+        sed -i '/^\s*$/d' Global.m3u
 
-        # 成人源
-        rm -f Adult.m3u && wget http://adultiptv.net/chs.m3u -O Adult.m3u
-        sed -i -n '/XXX/,+1p' Adult.m3u
-        sed -i 's/XXX/成人频道/' Adult.m3u
-        sed -i 's/AdultIPTV.net //g' Adult.m3u
-        # wget https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u -O AdultVideo.txt
-        # sed -i -n '/日本/,+1p' AdultVideo.txt
-        # sed -i 's/日本/成人视频/' AdultVideo.txt
-        # echo '' >> Adult.m3u && cat AdultVideo.txt >> Adult.m3u
-        # rm -f AdultVideo.txt
-        sed -i '/^\s*$/d' Adult.m3u
-
-        # 整合源
+        # IPTV整合源
         rm -f IPTV.m3u && touch IPTV.m3u
-        cat CCTV.m3u >> IPTV.m3u
-        cat CNTV.m3u >> IPTV.m3u
-        cat Adult.m3u >> IPTV.m3u
+        sed 's/group-title="/group-title="IPv4·/g' IPTV-v4.m3u && cat IPTV-v4.m3u >> IPTV.m3u
+        sed 's/group-title="/group-title="IPv6·/g' IPTV-v6.m3u && cat IPTV-v6.m3u >> IPTV.m3u
+        cat Global.m3u >> IPTV.m3u
         sed -i '/#EXTM3U/d' IPTV.m3u
         sed -i '1i #EXTM3U' IPTV.m3u
         sed -i '/^\s*$/d' IPTV.m3u
+        rm -f IPTV-v4.m3u
+        rm -f IPTV-v6.m3u
+        rm -f Global.m3u
+
+        # Radio
+        wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u -O radio_1.m3u
+        sed -i -n '/#EXTINF:/,+1p' radio_1.m3u
+        sed 's/\(tvg-logo=[^,]*\),/\1 group-title="FM",/g' radio_1.m3u
+
+        wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/index.m3u -O radio_2.m3u
+        sed -i -n '/group-title/,+1p' radio_2.m3u
+
+        # Radio整合源
+        rm -f Radio.m3u && touch Radio.m3u
+        cat radio_1.m3u >> Radio.m3u
+        cat radio_2.m3u >> Radio.m3u
+        sed -i '1i #EXTM3U' Radio.m3u
+        sed -i '/^\s*$/d' Radio.m3u
+        rm -f radio_1.m3u
+        rm -f radio_2.m3u
+        
+        # 成人源
+        # adultiptv.net
+        wget http://adultiptv.net/chs.m3u -O Adult_adultiptv.m3u
+        sed -i -n '/XXX/,+1p' Adult_adultiptv.m3u
+        sed -i 's/XXX/adultiptv/' Adult_adultiptv.m3u
+        sed -i 's/AdultIPTV.net //g' Adult_adultiptv.m3u
+        sed 's/group-title="/group-title="IPTV·/g' Adult_adultiptv.m3u
+        
+        # YueChan Adult
+        wget https://raw.githubusercontent.com/YueChan/Live/main/Adult.m3u -O Adult_YueChan.m3u
+        sed -i -n '/group-title=/,+1p' Adult_YueChan.m3u
+        sed -i 's/成人/YueChan/' Adult_YueChan.m3u
+        sed 's/group-title="/group-title="IPTV·/g' Adult_YueChan.m3u
+        
+        # YanG-1989 Adult
+        wget https://raw.githubusercontent.com/jiaoting/IPTV/Files/AdultVOD.m3u -O Adult_YanG-1989.m3u
+        sed 's/group-title="/group-title="VOD·/g' Adult_YanG-1989.m3u
+        
+        # Adult整合源
+        rm -f Adult.m3u && touch Adult.m3u
+        cat Adult_adultiptv.m3u >> Adult.m3u
+        cat Adult_YueChan.m3u >> Adult.m3u
+        cat Adult_YanG-1989.m3u >> Adult.m3u
+        sed -i '/#EXTM3U/d' Adult.m3u
+        sed -i '1i #EXTM3U' Adult.m3u
+        sed -i '/^\s*$/d' Adult.m3u
+        rm -f Adult_adultiptv.m3u
+        rm -f Adult_YueChan.m3u
+        rm -f Adult_YanG-1989.m3u
 
         # 节目源
         rm -f EPG.xml && wget https://epg.112114.xyz/pp.xml -O EPG.xml
-        echo "Auto Update IPTV in ${GET_TIME}" > README.md
-
-    - name: Clean
+      
+    - name: Apply
       run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git checkout --orphan latest_branch
-        git add -A
-        git commit -am "${GET_TIME}"
-        git branch -D Files
-        git branch -m Files
-
-    - name: Push
-      run: git push -f origin Files
+        Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
+        git add .
+        git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M:%S)"
+        git push -f
