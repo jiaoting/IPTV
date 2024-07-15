@@ -39,8 +39,8 @@ jobs:
 
         # IPTV整合源
         rm -f IPTV.m3u && touch IPTV.m3u
-        cat IPTV-v4.m3u >> IPTV.m3u
         cat IPTV-v6.m3u >> IPTV.m3u
+        cat IPTV-v4.m3u >> IPTV.m3u
         cat Global.m3u >> IPTV.m3u
         sed -i '/#EXTM3U/d' IPTV.m3u
         sed -i '1i #EXTM3U' IPTV.m3u
