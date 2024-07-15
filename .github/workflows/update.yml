@@ -28,23 +28,14 @@ jobs:
         
         # IPTV-v4
         rm -f IPTV-v4.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/index.m3u -O IPTV-v4.m3u
-        sed -i '/group-title/,+1p' IPTV-v4.m3u
         sed -i 's/group-title="/group-title="IPv4·/g' IPTV-v4.m3u
-        sed -i '1i #EXTM3U' IPTV-v4.m3u
-        sed -i '/^\s*$/d' IPTV-v4.m3u
         
         # IPTV-v6
         rm -f IPTV-v6.m3u && wget https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u -O IPTV-v6.m3u
-        sed -i '/group-title/,+1p' IPTV-v6.m3u
         sed -i 's/group-title="/group-title="IPv6·/g' IPTV-v6.m3u
-        sed -i '1i #EXTM3U' IPTV-v6.m3u
-        sed -i '/^\s*$/d' IPTV-v6.m3u
 
         # Global
         rm -f Global.m3u && wget https://raw.githubusercontent.com/YueChan/Live/main/Global.m3u -O Global.m3u
-        sed -i -n '/group-title/,+1p' Global.m3u
-        sed -i -n '1i #EXTM3U' Global.m3u
-        sed -i -n '/^\s*$/d' Global.m3u
 
         # IPTV整合源
         rm -f IPTV.m3u && touch IPTV.m3u
@@ -63,11 +54,9 @@ jobs:
         
         # Radio
         wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u -O radio_1.m3u
-        sed -i '/#EXTINF:/,+1p' radio_1.m3u
         sed -i 's/\(tvg-logo=[^,]*\),/\1 group-title="FM",/g' radio_1.m3u
 
         wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/index.m3u -O radio_2.m3u
-        sed -i '/group-title/,+1p' radio_2.m3u
 
         # Radio整合源
         rm -f Radio.m3u && touch Radio.m3u
@@ -81,14 +70,13 @@ jobs:
         # 成人源
         # adultiptv.net
         rm -f Adult_adultiptv.m3u && wget http://adultiptv.net/chs.m3u -O Adult_adultiptv.m3u
-        sed -i '/XXX/,+1p' Adult_adultiptv.m3u
+        sed -i -n '/XXX/,+1p' Adult_adultiptv.m3u
         sed -i 's/XXX/adultiptv/' Adult_adultiptv.m3u
         sed -i 's/AdultIPTV.net //g' Adult_adultiptv.m3u
         sed -i 's/group-title="/group-title="IPTV·/g' Adult_adultiptv.m3u
         
         # YueChan Adult
         rm -f Adult_YueChan.m3u && wget https://raw.githubusercontent.com/YueChan/Live/main/Adult.m3u -O Adult_YueChan.m3u
-        sed -i '/group-title=/,+1p' Adult_YueChan.m3u
         sed -i 's/成人/YueChan/' Adult_YueChan.m3u
         sed -i 's/group-title="/group-title="IPTV·/g' Adult_YueChan.m3u
         
