@@ -48,9 +48,11 @@ jobs:
         rm -f IPTV-v4.m3u
         rm -f IPTV-v6.m3u
         rm -f Global.m3u
+        
 
         # 节目源
         rm -f EPG.xml && wget https://epg.112114.xyz/pp.xml -O EPG.xml
+
         
         # Radio
         wget https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u -O radio_1.m3u
@@ -67,6 +69,7 @@ jobs:
         rm -f radio_1.m3u
         rm -f radio_2.m3u
 
+        
         # 成人源
         # adultiptv.net
         rm -f Adult_adultiptv.m3u && wget http://adultiptv.net/chs.m3u -O Adult_adultiptv.m3u
@@ -75,11 +78,6 @@ jobs:
         sed -i 's/AdultIPTV.net //g' Adult_adultiptv.m3u
         sed -i 's/group-title="/group-title="IPTV·/g' Adult_adultiptv.m3u
         
-        # YueChan Adult
-        rm -f Adult_YueChan.m3u && wget https://raw.githubusercontent.com/YueChan/Live/main/Adult.m3u -O Adult_YueChan.m3u
-        sed -i 's/成人/YueChan/' Adult_YueChan.m3u
-        sed -i 's/group-title="/group-title="IPTV·/g' Adult_YueChan.m3u
-        
         # YanG-1989 Adult
         rm -f Adult_YanG-1989.m3u && wget https://raw.githubusercontent.com/jiaoting/IPTV/Files/AdultVOD.m3u -O Adult_YanG-1989.m3u
         sed -i 's/group-title="/group-title="VOD·/g' Adult_YanG-1989.m3u
@@ -87,14 +85,13 @@ jobs:
         # Adult整合源
         rm -f Adult.m3u && touch Adult.m3u
         cat Adult_adultiptv.m3u >> Adult.m3u
-        cat Adult_YueChan.m3u >> Adult.m3u
         cat Adult_YanG-1989.m3u >> Adult.m3u
         sed -i '/#EXTM3U/d' Adult.m3u
         sed -i '1i #EXTM3U' Adult.m3u
         sed -i '/^\s*$/d' Adult.m3u
         rm -f Adult_adultiptv.m3u
-        rm -f Adult_YueChan.m3u
         rm -f Adult_YanG-1989.m3u
+
       
     - name: Apply
       run: |
