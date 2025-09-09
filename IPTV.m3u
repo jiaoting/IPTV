@@ -352,24 +352,25 @@ https://liveout.btzx.com.cn/62ds9e/yil08g.m3u8
 #EXTINF:-1 tvg-name="海南卫视" tvg-logo="https://live.fanmingming.com/tv/海南卫视.png" group-title="IPv4·卫视备用",海南卫视
 http://jxcbn.ws-cdn.gitv.tv/hls/HAINHD/index.m3u8?gMac=unknown&livodToken=337c9e24645beaea9e1dc2761e5d0e44cdce5dc90c3fedafcce5f9bde7faac9a_1720509432_604800&fromCDN=ws
 #EXTINF:-1 group-title="国际",BBC News
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/13645
-#https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
+https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
 #EXTINF:-1 group-title="国际",CNN
 http://user.scalecdn.co:8080/live/supersonicstreams/cUewZolveU/88946.ts
-#https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
 #EXTINF:-1 group-title="国际",CNA
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
-#EXTINF:-1 group-title="国际",Sky News
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/10536
 #EXTINF:-1 group-title="国际",GB News
 https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-gbnewsnz-samsungnz/playlist.m3u8
+#EXTINF:-1 group-title="国际",RT News
+https://rt-glb.rttv.com/dvr/rtnews/playlist_4500Kb.m3u8
+#EXTINF:-1 group-title="国际",CBN
+https://bcovlive-a.akamaihd.net/re8d9f611ee4a490a9bb59e52db91414d/us-east-1/734546207001/playlist.m3u8
+#EXTINF:-1 group-title="国际",Euronews
+https://jmp2.uk/rok-dafd06b712a35fbe9935d4c04c2e8b53.m3u8
 #EXTINF:-1 group-title="国际",Fox News
 http://panelguys.top:8080/txd7Fd/030774/1818
 #EXTINF:-1 group-title="国际",Al Jazeera
 http://live-hls-web-aje.getaj.net/AJE/01.m3u8
 #EXTINF:-1 group-title="国际",NHK World
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/1174156
-#https://nhkworld-tv.akamaized.net/hls/live/2115640/nhkworld-tv/index_2M.m3u8
+https://nhkworld-tv.akamaized.net/hls/live/2115640/nhkworld-tv/index_2M.m3u8
 #EXTINF:-1 group-title="国际",News Nation
 http://212.102.60.231:80/NEWS_NATION/index.m3u8
 #EXTINF:-1 group-title="国际",CBS News
@@ -404,6 +405,8 @@ https://bcovlive-a.akamaihd.net/rce33d845cb9e42dfa302c7ac345f7858/ap-northeast-1
 https://rt-rtd.rttv.com/live/rtdoc/playlist_4500Kb.m3u8
 #EXTINF:-1 group-title="国际",NBA TV
 http://panelguys.top:8080/txd7Fd/030774/22995
+#EXTINF:-1 group-title="国际",FIFA+
+https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8
 #EXTINF:-1 group-title="国际",Redbull
 http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_3360.m3u8
 #EXTINF:-1 group-title="国际",Sportsnet East
@@ -499,7 +502,7 @@ http://panelguys.top:8080/txd7Fd/030774/47339
 #EXTINF:-1 group-title="国际",NFL NETWORK  
 http://panelguys.top:8080/txd7Fd/030774/47346
 #EXTINF:-1 group-title="国际",NFL RedZone
-http://fl3.moveonjoy.com/NFL_RedZone/index.m3u8
+http://user.scalecdn.co:8080/live/supersonicstreams/cUewZolveU/3752.ts
 #EXTINF:-1 group-title="国际",OLN
 http://panelguys.top:8080/txd7Fd/030774/57366
 #EXTINF:-1 group-title="国际",OWN
@@ -554,22 +557,16 @@ http://panelguys.top:8080/txd7Fd/030774/53702
 http://panelguys.top:8080/txd7Fd/030774/53692
 #EXTINF:-1 group-title="国际",ITV 3
 http://panelguys.top:8080/txd7Fd/030774/53665
-#EXTINF:-1 group-title="国际",ITV2 HD
+#EXTINF:-1 group-title="国际",ITV2
 http://panelguys.top:8080/txd7Fd/030774/53671
 #EXTINF:-1 group-title="国际",MUTV
 http://panelguys.top:8080/txd7Fd/030774/53717
+#EXTINF:-1 group-title="国际",UP TV
+http://fl3.moveonjoy.com/Up_Tv/index.m3u8
+#EXTINF:-1 group-title="国际",BBC America  
+http://restream-live.realiptv.to:8080/supersonicstreams/cUewZolveU/3704
 #EXTINF:-1 group-title="国际",NICKELODEON
 http://panelguys.top:8080/txd7Fd/030774/53728
-#EXTINF:-1 group-title="国际",TNT SPORTS 1  
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/309615
-#EXTINF:-1 group-title="国际",TNT SPORTS 2  
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/309616
-#EXTINF:-1 group-title="国际",TNT SPORTS 3 
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/309617
-#EXTINF:-1 group-title="国际",TNT SPORTS 4 
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/309618
-#EXTINF:-1 group-title="国际",TNT SPORTS Ultimate  
-http://app-plus.live:80/0iq4jp0j2bb/ne5zp7911c/522060
 #EXTINF:-1 group-title="国际",Sky Cinema Animation
 http://panelguys.top:8080/txd7Fd/030774/53698
 #EXTINF:-1 group-title="国际",Sky Cinema Comedy
@@ -610,6 +607,12 @@ http://panelguys.top:8080/txd7Fd/030774/41979
 https://d3w4n3hhseniak.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/WPT-DistroTV/150.m3u
 #EXTINF:-1 group-title="国际",Eurosport
 http://45.159.74.22/Eurosport/playlist.m3u8
+#EXTINF:-1 group-title="国际",Trace Sport Stars
+https://lightning-tracesport-samsungau.amagi.tv/playlist720p.m3u8
+#EXTINF:-1 group-title="国际",WFN
+http://fl3.moveonjoy.com/WORLD_FISHING_NETWORK/index.m3u8
+#EXTINF:-1 group-title="国际",Weather Channel
+http://fl3.moveonjoy.com/THE_WEATHER_CHANNEL/index.m3u8
 #EXTINF:-1 group-title="国际",Lifetime Movies
 http://panelguys.top:8080/txd7Fd/030774/20863
 #EXTINF:-1 group-title="国际",NBC Sports Network
@@ -686,8 +689,10 @@ http://panelguys.top:8080/txd7Fd/030774/2210
 http://panelguys.top:8080/txd7Fd/030774/17639
 #EXTINF:-1 group-title="国际",FanDuel Sports South
 http://panelguys.top:8080/txd7Fd/030774/20922
-#EXTINF:-1 group-title="国际",BEIN SPORTS
+#EXTINF:-1 group-title="国际",BEIN Sports
 http://fl3.moveonjoy.com/BEIN_SPORTS/index.m3u8
+#EXTINF:-1 group-title="国际",BEIN Sports Xtra
+https://bein-xtra-xumo.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="国际",CBS SPORTS NETWORK
 http://fl3.moveonjoy.com/CBS_SPORTS_NETWORK/index.m3u8
 #EXTINF:-1 group-title="国际",Big Ten Network HD
@@ -724,6 +729,10 @@ http://panelguys.top:8080/txd7Fd/030774/11664
 http://panelguys.top:8080/txd7Fd/030774/21752
 #EXTINF:-1 group-title="国际",OUTSIDE TV
 http://panelguys.top:8080/txd7Fd/030774/20865
+#EXTINF:-1 group-title="国际",Wild Earth 
+https://wildearth-plex.amagi.tv/masterR1080p.m3u8
+#EXTINF:-1 group-title="国际",Love Nature 
+https://jmp2.uk/rok-479fe0d11f3f5132a3f36b617547da3b.m3u8
 #EXTINF:-1 group-title="国际",OWN
 http://panelguys.top:8080/txd7Fd/030774/46698
 #EXTINF:-1 group-title="国际",Oxygen
@@ -738,6 +747,14 @@ http://panelguys.top:8080/txd7Fd/030774/75654
 http://panelguys.top:8080/txd7Fd/030774/21895
 #EXTINF:-1 group-title="国际",TLC
 http://panelguys.top:8080/txd7Fd/030774/47703
+#EXTINF:-1 group-title="国际",TNT Sports 1  
+https://world-proxifier.xyz/ddy/proxy?url=XSQhJT0FNyhaUyVbUjExVkAtWCUkOToqN0lSID8lJ09SUzBbBgE6WjlTKStbBicD.m3u8
+#EXTINF:-1 group-title="国际",TNT Sports 2  
+https://world-proxifier.xyz/ddy/proxy?url=XSQhJT0FNyhaUyVbUjExVkAtWCUkOToqN0lSID8lJ09SUzBbBgA6WjlTKStbBicD.m3u8
+#EXTINF:-1 group-title="国际",TNT Sports 3  
+https://world-proxifier.xyz/ddy/proxy?url=XSQhJT0FNyhaUyVbUjExVkAtWCUkOToqN0lSID8lJ09SUzBbBgM6WjlTKStbBicD.m3u8
+#EXTINF:-1 group-title="国际",TNT Sports 4 
+https://world-proxifier.xyz/ddy/proxy?url=XSQhJT0FNyhaUyVbUjExVkAtWCUkOToqN0lSID8lJ09SUzBbBgI6WjlTKStbBicD.m3u8
 #EXTINF:-1 group-title="国际",TNT West
 http://panelguys.top:8080/txd7Fd/030774/46688
 #EXTINF:-1 group-title="国际",TNT East
